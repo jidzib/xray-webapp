@@ -1,0 +1,81 @@
+<button id="export-btn">Export</button>
+
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+<script>
+document.getElementById("export-btn").onclick = async () => {
+  const element = document.getElementById("export-area");
+
+  const canvas = await html2canvas(element, {
+    backgroundColor: "#ffffff",
+    scale: 2   // higher = sharper image
+  });
+
+  const link = document.createElement("a");
+  link.download = "prediction_snapshot.png";
+  link.href = canvas.toDataURL("image/png");
+  link.click();
+};
+</script>
+
+
+<div id="export-area">
+    <h2 style="text-align:center;">Prediction Results</h2>
+    <div class="main-graph">
+    <img src="data:image/png;base64,{{ plot_b64 }}" />
+    </div>
+
+    <div class="patient-info">
+    <p><b>Patient age:</b> {{ age }}</p>
+    <p><b>Sex:</b> {{ sex }}</p>
+    </div>
+
+    <div class="results-table">
+    <table border="1">
+    <tr>
+        <th>Condition</th>
+        <th>Result</th>
+    </tr>
+
+    {% for label, r in results %}
+    <tr>
+        <td>{{ label }}</td>
+        <td>{{ r }}</td>
+    </tr>
+    {% endfor %}
+    </table>
+    </div>
+</div>
+
+<form action="/">
+  <button type="submit">Run another prediction</button>
+</form>
+
+<style>
+    #export-area {
+        width:1500px;
+        background:white;
+        margin-left: 160px;
+    }
+    .main-graph {
+        display: flex;
+        justify-content: center;
+        margin: 30px 0;
+    }
+
+    .main-graph img {
+        width: 80%;
+        max-width: 1000px;
+    }
+
+    .patient-info {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .results-table {
+        display: flex;
+        justify-content: center;
+    }
+  
+</style>
+
