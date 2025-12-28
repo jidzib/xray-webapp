@@ -48,5 +48,5 @@ environment and launches the FastAPI app via Uvicorn on port 8080.
 **Training notebooks and model development code are available here**: https://github.com/jidzib/xray-model-training
 
 
-**DISCLAIMER (IMPORTANT)**\
+**DISCLAIMER (IMPORTANT)**
 ## THIS PROJECT IS FOR EDUCATIONAL PURPOSES ONLY AND IS NOT INTENDED FOR CLINICAL OR DIAGNOSTIC USE
