@@ -1,8 +1,11 @@
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.2.1+cpu
+torchvision==0.17.1+cpu
+
 fastapi
 uvicorn
-torch
-torchvision
+python-multipart
 pillow
 matplotlib
 jinja2
-numpy
+numpy<2
