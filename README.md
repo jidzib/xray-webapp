@@ -45,7 +45,7 @@ uvicorn app.main:app --reload
 The application is deployed using Docker and Fly.io The Dockerfile defines the runtime
 environment and launches the FastAPI app via Uvicorn on port 8080.
 
-**Training notebooks and model development code are available here**: https://github.com/jidzib/xray-model-training
+**Training notebooks and model development code are available here**: https://github.com/jidzib/xray-training-model
 
 
 ## DISCLAIMER (IMPORTANT)
